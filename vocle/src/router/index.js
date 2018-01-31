@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
 import Menu from '@/components/Menu'
 import Tiempo from '@/components/Tiempo'
+import BoardScores from '@/components/BoardScores'
 
 Vue.use(Router)
 
@@ -22,6 +23,11 @@ export default new Router({
       path: '/tiempo',
       name: 'Tiempo',
       component: Tiempo
+    },
+    {
+      path: '/boardscores',
+      name: 'BoardScores',
+      component: BoardScores
     }
   ]
 })
