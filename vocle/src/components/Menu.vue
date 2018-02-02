@@ -2,7 +2,7 @@
   <v-container fluid style="min-height: 0;" grid-list-lg>
     <v-layout row wrap>
       <v-flex xs12>
-        <v-card color="blue-grey darken-2" class="white--text">
+        <v-card :color="themeActual.card1" class="elevation-14 white--text animated flipInX">
           <v-container fluid grid-list-lg>
             <v-layout row>
               <v-flex xs7>
@@ -16,7 +16,7 @@
                 -->
                 </div>
               </v-flex>
-              <v-flex xs5>  
+              <v-flex xs5>
                 <v-card-media src="static/img/vocabulary.svg" height="125px" contain></v-card-media>
               </v-flex>
             </v-layout>
@@ -24,7 +24,7 @@
         </v-card>
       </v-flex>
       <v-flex xs12>
-        <v-card color="purple darken-2" class="white--text">
+        <v-card :color='themeActual.card2' class="elevation-14 white--text animated flipInX">
           <v-container fluid grid-list-lg>
             <v-layout row>
               <v-flex xs7>
@@ -41,7 +41,7 @@
         </v-card>
       </v-flex>
       <v-flex xs12>
-        <v-card color="cyan darken-3" class="white--text">
+        <v-card :color='themeActual.card3' class="elevation-14 white--text animated flipInX" :to="{ name: 'BoardScores'}">
           <v-container fluid grid-list-lg>
             <v-layout row>
               <v-flex xs7>
@@ -60,3 +60,14 @@
     </v-layout>
   </v-container>
 </template>
+
+<script>
+  export default {
+    props: ['themeActual'],
+    data () {
+      return {
+      }
+    },
+    methods: {}
+  }
+</script>
