@@ -11,11 +11,19 @@
     "lint": "eslint --ext .js,.vue src"
   },
   "dependencies": {
+    "child_process": "^1.0.2",
     "firebase": "^4.9.0",
+    "fs": "0.0.1-security",
+    "fs-web": "^1.0.1",
+    "google-translate-api": "^2.3.0",
+    "net": "^1.0.2",
+    "tl": "^0.10.1",
+    "tls": "0.0.1",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1",
     "vuefire": "^1.4.5",
-    "vuetify": "^0.17.6"
+    "vuetify": "^0.17.6",
+    "wordreference-api": "^1.1.0"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.5",

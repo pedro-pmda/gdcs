@@ -23,7 +23,7 @@
       <transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut">
       </transition>
       -->
-      <router-view :themeActual='themeActual'></router-view>
+      <router-view :themeActual='themeActual' :db='db'></router-view>
     </v-content>
 
     <template>
@@ -37,6 +37,23 @@
 </template>
 
 <script>
+  /* This code is repeated in every component. I need change this
+  import firebase from 'firebase'
+
+  let config = {
+    apiKey: 'AIzaSyCp7lRxidZjf1W_0ycmnx2B7f23xMUiXaQ',
+    authDomain: 'vocle-6228d.firebaseapp.com',
+    databaseURL: 'https://vocle-6228d.firebaseio.com',
+    projectId: 'vocle-6228d',
+    storageBucket: 'vocle-6228d.appspot.com',
+    messagingSenderId: '696767717356'
+  }
+  let dbInstance = firebase.initializeApp(config).database()
+  // let scoresRef = db.ref('scores')
+  /* snippet repeated */
+
+  import dbInstance from './config/firebaseConfig'
+
   export default {
     name: 'App',
     data () {
@@ -45,11 +62,12 @@
         themeActual: '',
         theme1: {
           toolbar: 'indigo darken-1 white--text',
-          card1: 'red lighten-2 white--text',
-          card2: 'green lighten-2  white--text',
-          card3: 'blue lighten-2 white--text',
+          card1: 'lime darken-1 white--text',
+          card2: 'cyan lighten-1  white--text',
+          card3: 'pink darken-1 white--text',
           title: 'grey--text text--darken-3',
-          background: 'white'
+          background: 'white',
+          db: ''
         }
 
       }
@@ -61,6 +79,7 @@
     },
     created () {
       this.themeActual = this.theme1
+      this.db = dbInstance
     }
   }
 </script>

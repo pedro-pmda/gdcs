@@ -17,6 +17,7 @@ Symbol.iterator()
 
 const games = new Set({})
 games.add()
+games.delete()
 games.clear()
 games.size()
 games.has()

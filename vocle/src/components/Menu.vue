@@ -2,7 +2,7 @@
   <v-container fluid style="min-height: 0;" grid-list-lg>
     <v-layout row wrap>
       <v-flex xs12>
-        <v-card :color="themeActual.card1" class="elevation-14 white--text animated flipInX">
+        <v-card :color="themeActual.card1" class="elevation-14 white--text animated flipInX" :to="{ name: 'Game1'}">
           <v-container fluid grid-list-lg>
             <v-layout row>
               <v-flex xs7>
@@ -17,7 +17,7 @@
                 </div>
               </v-flex>
               <v-flex xs5>
-                <v-card-media src="static/img/vocabulary.svg" height="125px" contain></v-card-media>
+                <v-card-media src="static/img/word.svg" height="125px" contain></v-card-media>
               </v-flex>
             </v-layout>
           </v-container>
@@ -34,7 +34,7 @@
                 </div>
               </v-flex>
               <v-flex xs5>
-                <v-card-media src="https://vuetifyjs.com/static/doc-images/cards/foster.jpg" height="125px" contain></v-card-media>
+                <v-card-media src="static/img/definition.svg" height="125px" contain></v-card-media>
               </v-flex>
             </v-layout>
           </v-container>
@@ -51,7 +51,24 @@
                 </div>
               </v-flex>
               <v-flex xs5>
-                <v-card-media src="static/img/challenge.jpg" height="125px" contain></v-card-media>
+                <v-card-media src="static/img/scores.svg" height="125px" contain></v-card-media>
+              </v-flex>
+            </v-layout>
+          </v-container>
+        </v-card>
+      </v-flex>
+      <v-flex xs12>
+        <v-card color='grey' class="elevation-14 white--text animated flipInX" :to="{ name: 'Dictionary'}">
+          <v-container fluid grid-list-lg>
+            <v-layout row>
+              <v-flex xs7>
+                <div>
+                  <div class="headline">Edit Words</div>
+                  <div>Edit the vocabulary game</div>
+                </div>
+              </v-flex>
+              <v-flex xs5>
+                <v-card-media src="static/img/edit.svg" height="125px" contain></v-card-media>
               </v-flex>
             </v-layout>
           </v-container>
