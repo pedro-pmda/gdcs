@@ -6,7 +6,6 @@
       <v-toolbar-title>VOCLE</v-toolbar-title>
       <v-spacer></v-spacer>
       <span class="">{{user.name}} HighScore: {{bestScore}} &nbsp</span>
-      <!--<span v-model="user" class="">{{user.name}} &nbsp</span>-->
       <v-flex xs1>
         <v-avatar size="36px" slot="activator">
           <img :src="user.avatar" alt="">
@@ -59,7 +58,7 @@
     created () {
       this.themeActual = this.theme1
       this.db = dbInstance
-      this.user.avatar = `https://api.adorable.io/avatars/132/6.png`
+      this.user.avatar = `https://api.adorable.io/avatars/132/${Math.trunc(Math.random() * 100)}.png`
       this.user.bestscore = 0
       bus.$on('newScore', (newScore) => {
         let newInsertScore = {

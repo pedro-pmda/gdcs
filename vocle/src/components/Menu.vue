@@ -9,11 +9,7 @@
                 <div>
                   <div class="headline">Guess The Word</div>
                   <div>Which is the word for this definition.?. the People</div>
-                <!--
-                <v-card-actions>
-                   <v-btn flat dark>Play now</v-btn>
-                </v-card-actions>
-                -->
+                  <div>TIME:20 seconds</div>
                 </div>
               </v-flex>
               <v-flex xs5>
@@ -24,13 +20,14 @@
         </v-card>
       </v-flex>
       <v-flex xs12>
-        <v-card :color='themeActual.card2' class="elevation-14 white--text animated flipInX">
+        <v-card :color='themeActual.card2' class="elevation-14 white--text animated flipInX" :to="{ name: 'Game2'}">
           <v-container fluid grid-list-lg>
             <v-layout row>
               <v-flex xs7>
                 <div>
                   <div class="headline">Guess The Definition</div>
                   <div>Wich is the word for this definition?</div>
+                  <div>TIME:20 seconds</div>
                 </div>
               </v-flex>
               <v-flex xs5>

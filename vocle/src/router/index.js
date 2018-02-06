@@ -2,10 +2,10 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import OnBoarding from '@/components/OnBoarding'
 import Menu from '@/components/Menu'
-// import Tiempo from '@/components/Tiempo'
 import BoardScores from '@/components/BoardScores'
 import Dictionary from '@/components/Dictionary'
 import Game1 from '@/components/Game1'
+import Game2 from '@/components/Game2'
 
 Vue.use(Router)
 
@@ -21,17 +21,15 @@ export default new Router({
       name: 'Menu',
       component: Menu
     },
-    /*
-    {
-      path: '/tiempo',
-      name: 'Tiempo',
-      component: Tiempo
-    },
-    */
     {
       path: '/game1',
       name: 'Game1',
       component: Game1
+    },
+    {
+      path: '/game2',
+      name: 'Game2',
+      component: Game2
     },
     {
       path: '/boardscores',
