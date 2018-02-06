@@ -1,14 +1,12 @@
 <template>
   <div class="animated fadeIn">
 
-    <<!-- div v-if="!gameover"> -->
       <v-layout row justify-center :class="themeActual.title" class="aire">
-        <h1>Challenge </h1>
         <h1>Score: {{score}}</h1>
       </v-layout>
 
-      <v-flex xs12>
-        <v-card color="cyan darken-2" class="white--text">
+      <v-flex xs10 offset-xs1>
+        <v-card color="grey" class="white--text">
           <v-card-title primary-title>
             <div class="headline">{{challenge.definition}}</div>
           </v-card-title>
@@ -16,12 +14,12 @@
       </v-flex>
 
       <v-layout class="mt-5">
-        <v-flex xs6 class='ml-1 mr-1'>
+        <v-flex xs5 offset-xs1>
           <div>
             <v-btn class="btn--block option" color="deep-orange accent-3" dark large @click='checkResponse(option1)'>{{option1.word}}</v-btn>
           </div>
         </v-flex>
-        <v-flex xs6 class='ml-1 mr-1'>
+        <v-flex xs5 class='ml-1 mr-1'>
           <div>
             <v-btn class="btn--block option" color="pink accent-3" dark large @click='checkResponse(option2)'>{{option2.word}}</v-btn>
           </div>
@@ -29,22 +27,17 @@
       </v-layout>
 
       <v-layout row>
-        <v-flex xs6 class='ml-1 mr-1'>
+        <v-flex xs5 offset-xs1>
           <div>
             <v-btn class="btn--block option" color="blue accent-4" dark large @click='checkResponse(option3)'>{{option3.word}}</v-btn>
           </div>
         </v-flex>
-        <v-flex xs6 class='ml-1 mr-1'>
+        <v-flex xs5 class='ml-1 mr-1'>
           <div>
             <v-btn class="btn--block option" color="lime darken-4" dark large @click='checkResponse(option4)'>{{option4.word}}</v-btn>
           </div>
         </v-flex>
       </v-layout>
-    <!--</div>
-   <div v-else>
-        <h1>Game Over</h1>
-
-   </div>-->
 
   <v-layout row justify-center>
       <v-dialog v-model="gameover" persistent max-width="350">
@@ -84,21 +77,26 @@
     computed: {},
     methods: {
       selectWords: function () {
+        this.options = []
+        let wordsCopy = this.words.slice()
         for (let index = 0; index < 4; index++) {
-          this.wordSelected = this.words[this.random(this.words.length)]
+          this.wordSelected = wordsCopy[this.random(this.words.length)]
           this.options.push(this.wordSelected)
-          /*
-          this.words = this.words.filter(function (i) {
-            return (i !== wordSelected)
-          })
-          */
+          this.remove(wordsCopy, this.wordSelected)
         }
+
         [this.option1, this.option2, this.option3, this.option4] = this.options
         this.challenge = this.options[this.random(4)]
         return this.challenge
       },
       random: function (i) {
         return Math.trunc(Math.random() * i)
+      },
+      remove: function (array, element) {
+        const index = array.indexOf(element)
+        if (index !== -1) {
+          array.splice(index, 1)
+        }
       },
       checkResponse: function (option) {
         if (this.challenge.definition === option.definition) {
@@ -121,7 +119,7 @@
       }
     },
     mounted: function () {
-      this.time = 5000
+      this.time = 25000
       this.$bindAsArray('words', this.db.ref('words'),
         null, // cancel callback ,
         () => this.initGame()
