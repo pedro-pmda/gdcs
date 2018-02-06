@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import OnBoarding from '@/components/OnBoarding'
 import Menu from '@/components/Menu'
-import Tiempo from '@/components/Tiempo'
+// import Tiempo from '@/components/Tiempo'
 import BoardScores from '@/components/BoardScores'
 import Dictionary from '@/components/Dictionary'
 import Game1 from '@/components/Game1'
@@ -12,14 +13,21 @@ export default new Router({
   routes: [
     {
       path: '/',
+      name: 'OnBoarding',
+      component: OnBoarding
+    },
+    {
+      path: '/menu',
       name: 'Menu',
       component: Menu
     },
+    /*
     {
       path: '/tiempo',
       name: 'Tiempo',
       component: Tiempo
     },
+    */
     {
       path: '/game1',
       name: 'Game1',

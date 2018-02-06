@@ -44,8 +44,6 @@
         <v-card text>
           <v-card-title class="display-3 middle">Game Over</v-card-title>
           <v-card-title class="display-4 middle">{{ score }} <span class="display-3">Points</span> </v-card-title>
-
-
           <v-card-actions>
             <v-spacer></v-spacer>
             <v-btn color="primary" @click="initGame()" dark large>Play Again</v-btn>
@@ -58,9 +56,11 @@
 </template>
 
 <script>
+  import bus from '../event-bus'
+
   export default {
     name: 'Game1',
-    props: ['themeActual', 'db', 'time'],
+    props: ['themeActual', 'db'],
     data () {
       return {
         words: [],
@@ -115,12 +115,13 @@
         this.selectWords()
         let self = this
         setTimeout(function () {
+          bus.$emit('newScore', self.score)
           return (self.gameover = true)
         }, this.time)
       }
     },
-    mounted: function () {
-      this.time = 0
+    created: function () {
+      this.time = 30000
       this.$bindAsArray('words', this.db.ref('words'),
         null, // cancel callback ,
         () => this.initGame()
