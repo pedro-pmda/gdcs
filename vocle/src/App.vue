@@ -19,39 +19,18 @@
       -->
     </v-toolbar>
     <v-content :class='theme1.background'>
-      <!--
-      <transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut">
-      </transition>
-      -->
       <router-view :themeActual='themeActual' :db='db'></router-view>
     </v-content>
-
     <template>
-      <v-footer class='pa-3'>
+      <v-footer class="pa-3">
         <v-spacer></v-spacer>
-        <div> Pedro Palazón - Udacity Google ScholarShip Challenge © {{ new Date().getFullYear() }}</div>
+        <div>Udacity Google Challenge - Pedro Palazón {{ new Date().getFullYear() }}</div>
       </v-footer>
     </template>
-    <!--</div>-->
   </v-app>
 </template>
 
 <script>
-  /* This code is repeated in every component. I need change this
-  import firebase from 'firebase'
-
-  let config = {
-    apiKey: 'AIzaSyCp7lRxidZjf1W_0ycmnx2B7f23xMUiXaQ',
-    authDomain: 'vocle-6228d.firebaseapp.com',
-    databaseURL: 'https://vocle-6228d.firebaseio.com',
-    projectId: 'vocle-6228d',
-    storageBucket: 'vocle-6228d.appspot.com',
-    messagingSenderId: '696767717356'
-  }
-  let dbInstance = firebase.initializeApp(config).database()
-  // let scoresRef = db.ref('scores')
-  /* snippet repeated */
-
   import dbInstance from './config/firebaseConfig'
 
   export default {

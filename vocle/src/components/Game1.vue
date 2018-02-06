@@ -14,7 +14,7 @@
       </v-flex>
 
       <v-layout class="mt-5">
-        <v-flex xs5 offset-xs1>
+        <v-flex xs5 offset-xs1 cl>
           <div>
             <v-btn class="btn--block option" color="deep-orange accent-3" dark large @click='checkResponse(option1)'>{{option1.word}}</v-btn>
           </div>
@@ -41,13 +41,15 @@
 
   <v-layout row justify-center>
       <v-dialog v-model="gameover" persistent max-width="350">
-        <v-card>
-          <v-card-title class="headline">Game Over</v-card-title>
-          <v-card-title class="headline">{{ score }}</v-card-title>
+        <v-card text>
+          <v-card-title class="display-3 middle">Game Over</v-card-title>
+          <v-card-title class="display-4 middle">{{ score }} <span class="display-3">Points</span> </v-card-title>
+
+
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn color="green darken-1" flat @click="initGame()">Play Again</v-btn>
-            <v-btn color="green darken-1" flat :to="{ name: 'Menu'}"> Exit</v-btn>
+            <v-btn color="primary" @click="initGame()" dark large>Play Again</v-btn>
+            <v-btn color="warning"  :to="{ name: 'Menu'}" dark large> Exit</v-btn>
           </v-card-actions>
         </v-card>
       </v-dialog>
@@ -80,11 +82,10 @@
         this.options = []
         let wordsCopy = this.words.slice()
         for (let index = 0; index < 4; index++) {
-          this.wordSelected = wordsCopy[this.random(this.words.length)]
+          this.wordSelected = wordsCopy[this.random(wordsCopy.length)]
           this.options.push(this.wordSelected)
           this.remove(wordsCopy, this.wordSelected)
         }
-
         [this.option1, this.option2, this.option3, this.option4] = this.options
         this.challenge = this.options[this.random(4)]
         return this.challenge
@@ -119,7 +120,7 @@
       }
     },
     mounted: function () {
-      this.time = 25000
+      this.time = 0
       this.$bindAsArray('words', this.db.ref('words'),
         null, // cancel callback ,
         () => this.initGame()
@@ -137,7 +138,10 @@
   }
 
   .option {
-    height: 120px;
+    height: 150px;
   }
 
+  .middle {
+    text-align: center !important;
+  }
 </style>
